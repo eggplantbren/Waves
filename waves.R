@@ -18,6 +18,14 @@ D = D/dx^2
 update = function(y_old, v_old, dt=0.001)
 {
     y_new = y_old + dt*v_old
-    v_new = v_old + dt*y_new
+    v_new = v_old + dt * D %*% y_new
     list(y_new=y_new, v_new=v_new)
+}
+
+for(i in 1:10000)
+{
+    new = update(y, v)
+    y = new$y_new
+    v = new$v_new
+    plot(x, y, type="l", ylim=c(-5, 5))
 }
