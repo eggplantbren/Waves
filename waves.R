@@ -13,3 +13,11 @@ D = -2*D
 D[row(D) == col(D) - 1] = 1
 D[row(D) == col(D) + 1] = 1
 D = D/dx^2
+
+# Function to compute updated position and velocity
+update = function(y_old, v_old, dt=0.001)
+{
+    y_new = y_old + dt*v_old
+    v_new = v_old + dt*y_new
+    list(y_new=y_new, v_new=v_new)
+}
