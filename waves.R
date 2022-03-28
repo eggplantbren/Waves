@@ -18,7 +18,7 @@ D = D/dx^2
 update = function(y_old, v_old, dt=0.001)
 {
     y_new = y_old + dt*v_old
-    v_new = v_old + dt * D %*% y_new + 50*sqrt(dt)*length(x)
+    v_new = v_old + dt * D %*% y_new + 50*sqrt(dt)*rnorm(length(x))
     list(y_new=y_new, v_new=v_new)
 }
 
